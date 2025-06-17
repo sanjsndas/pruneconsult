@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PruneConsult - Contact Us</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Root & Theme Colors */
+    :root {
+      --dark-green-900: #0b3d0b;
+      --dark-green-800: #126012;
+      --dark-green-700: #1a8a1a;
+      --dark-green-600: #28b028;
+      --tree-ring-bg: url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a07ea40f-3dc1-49fa-9714-c23036ab4297.png") center/cover no-repeat;
+      --font-headline: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --text-white: #fafafa;
+      --text-muted: #a0b29a;
+      --bg-dark: #061d06;
+      --card-bg: rgba(40, 176, 40, 0.15);
+      --shadow-dark: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      background-image: var(--tree-ring-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--dark-green-600);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--dark-green-700);
+      outline: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 7px #2a5b2a88;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      margin-top: 3rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      user-select: text;
+    }
+
+    ul {
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    ul li {
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* Utilities */
+    .container {
+      width: min(90%, 960px);
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 4rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+      border-radius: 1rem;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 8px var(--shadow-dark);
+      margin-bottom: 3rem;
+      max-width: 900px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--dark-green-900);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 5px var(--shadow-dark);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(90%, 1200px);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--dark-green-600);
+      user-select: none;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px #1e4f1eaa;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-left: 2rem;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+      user-select: none;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--dark-green-600);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      opacity: 1;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    nav a.active,
+    nav a[aria-current="page"] {
+      font-weight: 700;
+      color: var(--dark-green-300);
+    }
+
+    /* Main Layout */
+    main {
+      flex-grow: 1;
+      padding-bottom: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-content {
+      max-height: none;
+      overflow-y: visible;
+      padding-right: 0;
+      user-select: text;
+      max-width: 900px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    form {
+      background-color: rgba(10, 40, 10, 0.85);
+      padding: 2rem 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px #1a5d1aff;
+      color: var(--text-white);
+      margin-top: 2rem;
+      max-width: 900px;
+    }
+
+    form h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 8px #2bab2b8a;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+      color: var(--dark-green-600);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 0.6rem;
+      border: none;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      background-color: rgba(255 255 255 / 0.15);
+      color: var(--text-white);
+      transition: background-color 0.3s ease;
+      margin-bottom: 1.25rem;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      background-color: rgba(255 255 255 / 0.3);
+      outline: 2px solid var(--dark-green-600);
+    }
+
+    button.submit-btn {
+      width: 100%;
+      background-color: var(--dark-green-600);
+      color: var(--text-white);
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1rem 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      border: none;
+      font-size: 1.25rem;
+    }
+
+    button.submit-btn:hover {
+      background-color: var(--dark-green-700);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px #28c028cc;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-green-900);
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      box-shadow: 0 -4px 12px var(--shadow-dark);
+      border-top: 1px solid var(--dark-green-800);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    footer strong {
+      color: var(--dark-green-600);
+    }
+
+    /* Accessibility & Focus */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--dark-green-600);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <header role="banner">
+    <div class="nav-container">
+      <div class="logo" aria-label="PruneConsult logo">PruneConsult</div>
+      <nav aria-label="Primary navigation">
+       <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0"aria-current="page">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" tabindex="-1" class="container">
+    <section class="section contact-content" aria-label="Contact Page Content">
+      <h1>Contact PruneConsult</h1>
+      <p>We welcome your inquiries, requests, and feedback. Whether you’re interested in booking a consultation, have questions about pruning, plant health, or any of our services, or simply want to connect with our expert team, this page provides all the ways to get in touch and learn more.</p>
+
+      <h2>How to Reach Us</h2>
+      <p>Phone: Our dedicated customer service team is available at <strong>+1 877-292-3344</strong> during business hours to answer your calls promptly and assist you with any questions or bookings.</p>
+      <p>Email: For less urgent inquiries, detailed questions, or document submissions, please write to us at <a href="mailto:info@pruneconsult.com">info@pruneconsult.com</a>. We strive to respond within 24-48 hours.</p>
+      <p>Office Address: Visit us or send mail at <strong>550 1st Ave, New York, NY 10016, USA</strong>. Our office hours are Monday to Friday, 9 AM to 6 PM.</p>
+
+      <h2>Our Commitment to Support</h2>
+      <p>At PruneConsult, our commitment extends beyond providing expert pruning and plant health advice. We aim to deliver exceptional customer service and support throughout your journey. Our knowledgeable team is ready to listen, advise, and coordinate services customized to your needs.</p>
+      <p>Please do not hesitate to reach out for technical guidance, scheduling assistance, after-service follow-ups, or general horticultural information. Your satisfaction and the health of your plants are our top priorities.</p>
+
+      <h2>Frequently Asked Contact Topics</h2>
+      <ul>
+        <li><strong>Booking & Scheduling:</strong> Assistance with finding consultation times, rescheduling appointments, or cancellations. We understand that plans can change, and offer flexibility while ensuring timely and efficient service delivery.</li>
+        <li><strong>Service Details:</strong> Detailed information about pruning techniques, diagnostic processes, custom reporting, pricing structures, and seasonal care recommendations to help you make informed decisions.</li>
+        <li><strong>Technical Support:</strong> Guidance for navigating our website, accessing online reports, troubleshooting booking system issues, and understanding digital communications from our team.</li>
+        <li><strong>Feedback & Complaints:</strong> We highly value customer feedback and strive for continuous improvement. Our team handles complaints promptly and professionally to resolve any concerns and ensure your complete satisfaction.</li>
+        <li><strong>Partnership & Collaboration:</strong> Opportunities for landscapers, arborists, and business entities to collaborate with PruneConsult in mutual growth initiatives, referral programs, and educational outreach.</li>
+      </ul>
+
+      <h2>Contact Form</h2>
+      <form aria-labelledby="contactFormTitle" id="contactForm" novalidate>
+        <h2 id="contactFormTitle">Send Us a Message</h2>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Your full name" required autocomplete="name" />
+
+        <label for="emailAddress">Email Address</label>
+        <input type="email" id="emailAddress" name="emailAddress" placeholder="you@example.com" required autocomplete="email" />
+
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+1 555 123 4567" autocomplete="tel" />
+
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>Select a topic</option>
+          <option value="booking">Booking & Scheduling</option>
+          <option value="services">Service Details</option>
+          <option value="technical">Technical Support</option>
+          <option value="feedback">Feedback & Complaints</option>
+          <option value="partnership">Partnership & Collaboration</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit" class="submit-btn" aria-label="Submit contact form">Submit</button>
+      </form>
+
+      <h2>Extended Contact Information and Support</h2>
+      <p>PruneConsult is dedicated to providing comprehensive support and open communication channels for all clients and website visitors. Our team stays updated on the latest horticultural research and customer service best practices to offer knowledgeable and timely assistance.</p>
+
+      <p>For urgent matters such as hazardous tree conditions or emergency pruning, we maintain a responsive hotline to ensure your safety and that of your property with minimal delay.</p>
+
+      <p>In addition to direct contact, our website features an extensive resource library with detailed guides, seasonal tips, and answers to common questions to empower you in plant and tree care.</p>
+
+      <p>Please note, while our response times are generally quick, peak seasons may increase wait times slightly. We appreciate your understanding and assure you that every inquiry is treated with absolute confidentiality and professionalism.</p>
+
+      <h2>Additional Contact Topics and Resources</h2>
+      <ul>
+        <li><strong>Emergency Services:</strong> Guidance for urgent tree health or safety issues requiring expedited consultation and risk assessment.</li>
+        <li><strong>Consultation Follow-Up:</strong> Procedures for post-consultation questions, ongoing support, and additional service requests.</li>
+        <li><strong>Invoice and Payment Queries:</strong> Billing questions, payment options, invoicing details, and receipt requests.</li>
+        <li><strong>Newsletter and Communications Preferences:</strong> Manage subscription preferences to keep your inbox relevant and useful.</li>
+        <li><strong>Site Feedback and Technical Issues:</strong> Report website usability issues, accessibility feedback, and suggestions for enhancement.</li>
+      </ul>
+
+      <h2>Community Engagement and Public Events</h2>
+      <p>We occasionally host workshops, webinars, and community outreach events focused on sustainable pruning, plant health diagnostics, and urban forestry education. Stay connected through our communication channels for event announcements and registration details. These events provide additional opportunities to interact with our expert team and fellow plant enthusiasts.</p>
+
+      <h2>Privacy and Data Security in Communication</h2>
+      <p>All information submitted through our contact channels is handled with strict confidentiality and privacy. We utilize secure transmission protocols and limit access to authorized personnel. By contacting us, you consent to the processing of your data consistent with our Privacy Policy.</p>
+
+      <h2>Contacting Corporate and Bulk Service Departments</h2>
+      <p>For bulk service inquiries, corporate partnerships, or commercial landscaping consultations, please specify your interest in your message or choose the partnership option in the contact form. Our corporate services team provides tailored solutions to meet organizational needs with dedicated account management.</p>
+
+      <p>Thank you for choosing PruneConsult. We are eager to assist you and provide the highest quality pruning and plant health services supported by expert guidance and customer care.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo" aria-label="Footer with address and contact information">
+    <p><strong>PruneConsult</strong></p>
+    <p>550 1st Ave, New York, NY 10016, USA</p>
+    <p>Expert pruning advice, diagnostics &amp; plant health evaluation</p>
+    <p>Contact: <a href="mailto:info@pruneconsult.com">info@pruneconsult.com</a> | Phone: <a href="tel:+18772923344">+1
+        877-292-3344</a></p>
+  </footer>
+
+  <script>
+    // Form submission simulation
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      alert('Thank you for contacting PruneConsult! We will respond to your message as soon as possible.');
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>
+

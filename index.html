@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PruneConsult - Expert Pruning & Plant Health Advice</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Root & Theme Colors */
+    :root {
+      --dark-green-900: #0b3d0b;
+      --dark-green-800: #126012;
+      --dark-green-700: #1a8a1a;
+      --dark-green-600: #28b028;
+      --tree-ring-bg: url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a07ea40f-3dc1-49fa-9714-c23036ab4297.png") center/cover no-repeat;
+      --font-headline: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --text-white: #fafafa;
+      --text-muted: #a0b29a;
+      --bg-dark: #061d06;
+      --card-bg: rgba(40, 176, 40, 0.15);
+      --shadow-dark: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      background-image: var(--tree-ring-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--dark-green-600);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--dark-green-700);
+      outline: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 7px #2a5b2a88;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+    }
+
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Utilities */
+    .container {
+      width: min(90%, 1200px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section {
+      padding: 3rem 0;
+      border-radius: 1rem;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 8px var(--shadow-dark);
+      margin-bottom: 3rem;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--dark-green-900);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 5px var(--shadow-dark);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(90%, 1200px);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--dark-green-600);
+      user-select: none;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px #1e4f1eaa;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-left: 2rem;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--dark-green-600);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      opacity: 1;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      background: linear-gradient(135deg, var(--dark-green-900) 0%, var(--dark-green-800) 100%);
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px #1b4d1baa;
+      color: var(--text-white);
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-weight: 800;
+      color: var(--dark-green-300, #9ad39a);
+      text-shadow: 0 0 15px #6eb66eaa;
+    }
+
+    .hero p.slogan {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 6px #5c965caa;
+    }
+
+    .btn-primary {
+      margin-top: 2.5rem;
+      background: var(--dark-green-600);
+      color: var(--text-white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 14px #228622cc;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: var(--dark-green-700);
+      outline: none;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #2cab2ccc;
+    }
+
+    /* Main Layout */
+    main {
+      flex-grow: 1;
+      padding-bottom: 3rem;
+    }
+
+    /* Grid Layout for desktop and tablet */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .content-grid {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .content-grid {
+        grid-template-columns: 2.5fr 1fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    /* Section Titles */
+    .section-title {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 6px #3c7b3ccc;
+    }
+
+    /* About Us Section */
+    #about p {
+      max-width: 850px;
+    }
+
+    /* Image Gallery */
+    .gallery {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 10px var(--shadow-dark);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .gallery img:hover,
+    .gallery img:focus {
+      transform: scale(1.05);
+      border-color: var(--dark-green-600);
+      outline: none;
+      box-shadow: 0 6px 15px #2bab2bcc;
+    }
+
+    /* Feedback & Tips styles */
+    .feedbacks,
+    .tips-list {
+      max-width: 800px;
+      margin-top: 1rem;
+    }
+
+    .feedback-item,
+    .tip-item {
+      background: rgba(255 255 255 / 0.1);
+      border-radius: 0.75rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px #143114cc;
+      color: var(--text-white);
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .feedback-author {
+      margin-top: 0.5rem;
+      font-weight: 600;
+      text-align: right;
+      font-style: normal;
+      color: var(--dark-green-600);
+    }
+
+    /* Booking System Section */
+    #booking {
+      max-width: 600px;
+      background: rgba(10, 50, 10, 0.85);
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px #1a5d1aff;
+      padding: 2rem 2.5rem;
+      color: var(--text-white);
+      margin: 0 auto 3rem auto;
+    }
+
+    #booking h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    #booking form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #booking label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--dark-green-600);
+    }
+
+    #booking input,
+    #booking select,
+    #booking textarea {
+      padding: 0.8rem 1rem;
+      border-radius: 0.6rem;
+      border: none;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      background-color: rgba(255 255 255 / 0.15);
+      color: var(--text-white);
+      transition: background-color 0.3s ease;
+      resize: vertical;
+    }
+
+    #booking input:focus,
+    #booking select:focus,
+    #booking textarea:focus {
+      background-color: rgba(255 255 255 / 0.3);
+      outline: 2px solid var(--dark-green-600);
+    }
+
+    #booking button.submit-btn {
+      margin-top: 1.5rem;
+      background-color: var(--dark-green-600);
+      color: var(--text-white);
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1rem 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #booking button.submit-btn:hover {
+      background-color: var(--dark-green-700);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px #28c028bb;
+    }
+
+    /* Service Zones */
+    #service-zones {
+      max-width: 600px;
+      margin-top: 3rem;
+      padding: 0 1rem;
+    }
+
+    #service-zones ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: var(--text-muted);
+    }
+
+    #service-zones li {
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding-left: 2rem;
+      font-weight: 600;
+      color: var(--dark-green-600);
+    }
+
+    #service-zones li::before {
+      content: "🌿";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    /* Disclaimers */
+    #disclaimer {
+      background-color: rgba(40, 140, 40, 0.18);
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 3rem auto 0 auto;
+      text-align: center;
+    }
+
+    /* Content heavy area with scrollable long text and spacing */
+    #content-text {
+      max-height: 600px;
+      overflow-y: scroll;
+      background: rgba(10, 40, 10, 0.7);
+      border-radius: 1rem;
+      padding: 2rem;
+      line-height: 1.8;
+      font-size: 1rem;
+      color: var(--text-white);
+      box-shadow: 0 6px 20px #145014cc;
+      margin-bottom: 3rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--dark-green-600) transparent;
+    }
+
+    /* Scrollbar for WebKit */
+    #content-text::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    #content-text::-webkit-scrollbar-thumb {
+      background-color: var(--dark-green-600);
+      border-radius: 10px;
+    }
+
+    /* Service Table Styling */
+    #services table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      box-shadow: 0 8px 20px rgba(10, 50, 10, 0.9);
+      border-radius: 1rem;
+      overflow: hidden;
+      font-size: 1rem;
+      color: var(--text-white);
+      background-color: rgba(10, 50, 10, 0.85);
+      user-select: text;
+    }
+
+    #services table thead {
+      background: var(--dark-green-700);
+    }
+
+    #services table thead th {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      font-weight: 700;
+      border-bottom: 2px solid var(--dark-green-600);
+      color: var(--text-white);
+      font-family: var(--font-headline);
+    }
+
+    #services table tbody tr {
+      border-bottom: 1px solid rgba(40, 140, 40, 0.3);
+    }
+
+    #services table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    #services table tbody td {
+      padding: 1rem 1.5rem;
+      vertical-align: top;
+      line-height: 1.4;
+      color: var(--text-muted);
+    }
+
+    #services table tbody tr:hover {
+      background-color: rgba(40, 176, 40, 0.3);
+      color: var(--text-white);
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-green-900);
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      box-shadow: 0 -4px 12px var(--shadow-dark);
+      border-top: 1px solid var(--dark-green-800);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    footer strong {
+      color: var(--dark-green-600);
+    }
+
+    /* Customer Satisfaction Banner */
+    .customer-satisfaction {
+      background: linear-gradient(45deg, #1a601a, #134713);
+      color: #d2f8d2;
+      padding: 1.5rem 1rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+      box-shadow: 0 6px 24px #22bb2288;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Accessibility & Focus */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--dark-green-600);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <header role="banner">
+    <div class="nav-container">
+      <div class="logo" aria-label="PruneConsult logo">
+        PruneConsult
+      </div>
+      <nav aria-label="Primary navigation">
+        <a href="index.html" tabindex="0"aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main" tabindex="-1">
+    <section class="hero" aria-label="Hero section with slogan and call to action">
+      <h1>PruneConsult</h1>
+      <p class="slogan">Trimming problems from the root.</p>
+      <p>Expert pruning advice, diagnostics &amp; plant health evaluation</p>
+      <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"
+        aria-label="Scroll to booking form">Book Your Consultation</button>
+    </section>
+
+    <section id="content-text" class="section" aria-label="Extensive content about pruning, plant health, and services">
+      <h2 class="section-title">Expert Pruning & Plant Health Content</h2>
+      <p>Welcome to PruneConsult, your premier source for expert pruning advice, diagnostic services, and comprehensive plant health evaluations. Our team of certified arborists and horticultural specialists is
+        dedicated to helping you maintain the optimal health and beauty of your trees and plants.</p>
+      <p>Pruning is not merely a cosmetic process; it is a critical practice that influences the growth, health, and longevity of your plants and trees. Incorrect pruning can cause irreversible damage, increase
+        vulnerability to diseases, and reduce the overall vitality of your landscape. Our mission is to trim problems from the root, ensuring healthy growth and enhanced aesthetics for your greenery.</p>
+      <p>At PruneConsult, we emphasize the importance of evidence-based pruning techniques tailored to each species and environmental condition. From shaping young trees to removing hazardous limbs, our recommendations
+        incorporate the latest research and industry standards.</p>
+      <p>Our diagnostic services include in-depth assessments of plant diseases, pest infestations, structural integrity, and environmental stress factors. Using modern tools and diagnostics technology, we offer personalized
+        health evaluation reports that guide your care decisions effectively.</p>
+      <p>You will find on this site curated tips, expert feedback, and up-to-date knowledge designed to empower both amateur gardeners and professional landscapers. Whether you need assistance identifying plant health issues,
+        creating maintenance plans, or scheduling timely pruning interventions, we have you covered.</p>
+      <p>(Content continues with expert articles, case studies, trend insights, and best practices spanning over 60,000+ words in final production - here represented by a placeholder for size.)</p>
+      <p>To ensure your experience remains engaging and easy to navigate, this comprehensive content is organized into clear sections, detailed illustrations, and actionable advice backed by real-world applications.</p>
+      <p>Let PruneConsult be your partner in nurturing your landscape with the care it deserves.</p>
+      <p>Explore more below about our services, book a consultation, or reach out for personalized advice.</p>
+      <p>(... extensive horticultural knowledge, pruning standards, localized plant care guides, seasonal pruning calendars, environmental impact considerations, etc. ...)</p>
+      <p style="font-style: italic; margin-top: 2rem;">This content placeholder will be filled with extensive expert knowledge in the actual service site.</p>
+    </section>
+
+    <section id="about" class="section" aria-label="About Us section">
+      <h2 class="section-title">About Us</h2>
+      <p>PruneConsult is a collective of expert arborists and plant health professionals who bring decades of experience in tree pruning, diagnostics, and horticultural sciences.</p>
+      <p>Our commitment is to provide clear, scientific, and practical advice to help property owners, landscapers, and gardeners enhance the health and aesthetics of their green spaces.</p>
+      <p>We combine technology with hands-on expertise, offering tailored services including health evaluations, pruning plans, and educational resources designed to foster sustainable plant care.</p>
+      <div class="gallery" aria-label="About Us image gallery with team and plant health visuals">
+        <img src="s1.png"
+          alt="Group of expert arborists in green uniforms inspecting tree" tabindex="0" />
+        <img src="s2.png"
+          alt="Diagnostic tools measuring tree health on a large oak tree" tabindex="0" />
+        <img src="s3.png"
+          alt="Close-up of leaf showing health evaluation markings and details" tabindex="0" />
+        <img src="s4.png"
+          alt="Arborist safely pruning a large tree branch using professional tools" tabindex="0" />
+      </div>
+    </section>
+
+    <section class="section" aria-label="Services and Tree Health Reports">
+      <h2 class="section-title" id="services">Our Services</h2>
+      <p>PruneConsult provides a full suite of tree and plant care solutions below:</p>
+
+      <table aria-describedby="serviceDesc">
+        <thead>
+          <tr>
+            <th scope="col">Service</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Custom Pruning Plans</td>
+            <td>Tailored pruning schedules and techniques designed to optimize both aesthetic appeal and long-term health of your trees and shrubs.</td>
+          </tr>
+          <tr>
+            <td>Detailed Tree Health Reports</td>
+            <td>Comprehensive evaluations including soil analysis, pest detection, and growth assessments with actionable recommendations.</td>
+          </tr>
+          <tr>
+            <td>Pest and Disease Consultation</td>
+            <td>Identification and treatment strategies for common and complex pests and diseases threatening your plants.</td>
+          </tr>
+          <tr>
+            <td>Plant Stress & Soil Condition Analysis</td>
+            <td>Assessment of environmental and soil stressors impacting plant vitality with guidance for remediation and soil health improvement.</td>
+          </tr>
+          <tr>
+            <td>Emergency Tree Risk Assessments</td>
+            <td>Urgent evaluations of hazardous limbs and structural issues to ensure property and personal safety with responsive advisory services.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Tree Health Reports</h3>
+      <p>Our comprehensive reports are based on advanced diagnostics including soil testing, leaf and bark analysis, and visual inspection. The reports provide actionable insights and recommendations for maintenance
+        and treatments.</p>
+
+      <div class="gallery" aria-label="Tree Health report sample images">
+        <img src="p1.png"
+          alt="An example soil test report showcasing nutrient levels and deficiencies" tabindex="0" />
+        <img src="p2.png"
+          alt="High-resolution imaging of leaf samples highlighting disease spots" tabindex="0" />
+        <img src="p3.png"
+          alt="Report details showing detected pest types and infestation severity" tabindex="0" />
+      </div>
+
+      <h3>Service Zones</h3>
+      <div id="service-zones" aria-label="List of service zones covered by PruneConsult">
+        <ul>
+          <li>New York City Boroughs: Manhattan, Brooklyn, Queens, Bronx, Staten Island</li>
+          <li>Westchester County Surrounding Areas</li>
+          <li>Long Island Suburban Zones</li>
+          <li>Consultations available via virtual video call nationwide</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="booking" class="section" aria-label="Booking system for consultations and services">
+      <h2 class="section-title">Book Your Tree Health Consultation</h2>
+      <form aria-labelledby="booking" novalidate>
+        <label for="name">Full Name</label>
+        <input id="name" type="text" name="name" placeholder="Your full name" required autocomplete="name" />
+
+        <label for="email">Email Address</label>
+        <input id="email" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+
+        <label for="phone">Phone Number</label>
+        <input id="phone" type="tel" name="phone" placeholder="+1 555 123 4567" autocomplete="tel" />
+
+        <label for="service-type">Service Type</label>
+        <select id="service-type" name="service-type" required>
+          <option value="" disabled selected>Select a Service</option>
+          <option value="diagnostic">Tree Health Diagnostic</option>
+          <option value="pruning">Pruning Consultation</option>
+          <option value="report">Detailed Health Report</option>
+          <option value="emergency">Emergency Assessment</option>
+        </select>
+
+        <label for="preferred-date">Preferred Date</label>
+        <input id="preferred-date" type="date" name="preferred-date" required min="" aria-describedby="dateHelp" />
+        <small id="dateHelp" style="color: var(--text-muted); font-size: 0.85rem;">Choose a date at least 2 days from now.
+          Weekends are high-demand.</small>
+
+        <label for="additional-info">Additional Information</label>
+        <textarea id="additional-info" name="additional-info" rows="4" placeholder="Describe any concerns or details"></textarea>
+
+        <button type="submit" class="submit-btn" aria-label="Submit booking form">Submit Booking</button>
+      </form>
+    </section>
+
+    <section id="feedback" class="section" aria-label="Customer feedback section">
+      <h2 class="section-title">Customer Feedback</h2>
+      <div class="feedbacks" role="list" aria-live="polite">
+        <article class="feedback-item" role="listitem" tabindex="0">
+          “The experts at PruneConsult helped revive my ailing maple tree with precise pruning and advice. Their diagnosis and
+          follow-up care were exceptional.”
+          <div class="feedback-author">– Samantha L., Brooklyn</div>
+        </article>
+        <article class="feedback-item" role="listitem" tabindex="0">
+          “A truly professional service. The Tree Health Report gave me detailed insights I never knew I needed. Highly
+          recommend their team!”
+          <div class="feedback-author">– Raj P., Manhattan</div>
+        </article>
+        <article class="feedback-item" role="listitem" tabindex="0">
+          “Emergency assessment was timely and saved a dangerous branch from falling. Their knowledgeable team put me at
+          ease the entire time.”
+          <div class="feedback-author">– Lisa M., Queens</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="tips" class="section" aria-label="Expert pruning and plant care tips">
+      <h2 class="section-title">Pruning & Plant Health Tips</h2>
+      <ul class="tips-list" role="list">
+        <li class="tip-item" tabindex="0">
+          Prune your trees during late winter to early spring before buds open for healthier growth.
+        </li>
+        <li class="tip-item" tabindex="0">
+          Always use clean, sharp tools to avoid damaging plant tissue and spreading disease.
+        </li>
+        <li class="tip-item" tabindex="0">
+          Remove dead or diseased branches immediately to prevent the spread of pathogens.
+        </li>
+        <li class="tip-item" tabindex="0">
+          Avoid excessive pruning in one season as it can weaken the tree and reduce fruit production.
+        </li>
+        <li class="tip-item" tabindex="0">
+          Regularly inspect your plants for signs of stress, pests, or disease to catch problems early.
+        </li>
+      </ul>
+    </section>
+
+    <section class="customer-satisfaction" aria-label="Customer satisfaction statement">
+      Increasing customer satisfaction by delivering expert, tailored pruning advice and real health improvements — your
+      trees deserve the best care.
+    </section>
+
+    <section id="disclaimer" class="section" aria-label="Disclaimer about the service">
+      <h2 class="section-title">Disclaimer</h2>
+      <p>
+        The services and advice provided by PruneConsult are for informational purposes only and do not substitute for the
+        judgment of a certified arborist on site. Individual plant health and environmental conditions may vary. PruneConsult
+        is not liable for damages or losses resulting from following the guidance provided on this website.
+      </p>
+    </section>
+  </main>
+
+  <footer role="contentinfo" aria-label="Footer with address and contact information">
+    <p><strong>PruneConsult</strong></p>
+    <p>550 1st Ave, New York, NY 10016, USA</p>
+    <p>Expert pruning advice, diagnostics &amp; plant health evaluation</p>
+    <p>Contact: <a href="mailto:info@pruneconsult.com">info@pruneconsult.com</a> | Phone: <a href="tel:+18772923344">+1
+        877-292-3344</a></p>
+  </footer>
+
+  <script>
+    // Booking date restriction: min date = 2 days from today
+    const dateInput = document.getElementById('preferred-date');
+    if (dateInput) {
+      const today = new Date();
+      today.setDate(today.getDate() + 2);
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      dateInput.min = `${yyyy}-${mm}-${dd}`;
+    }
+
+    // Simple client-side validation & submission stub
+    document.querySelector('#booking form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      alert('Thank you for booking with PruneConsult! We will contact you shortly.');
+      form.reset();
+    });
+  </script>
+</body>
+
+</html>
+
+

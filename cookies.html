@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PruneConsult - Cookies Policy</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Root & Theme Colors */
+    :root {
+      --dark-green-900: #0b3d0b;
+      --dark-green-800: #126012;
+      --dark-green-700: #1a8a1a;
+      --dark-green-600: #28b028;
+      --tree-ring-bg: url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a07ea40f-3dc1-49fa-9714-c23036ab4297.png") center/cover no-repeat;
+      --font-headline: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --text-white: #fafafa;
+      --text-muted: #a0b29a;
+      --bg-dark: #061d06;
+      --card-bg: rgba(40, 176, 40, 0.15);
+      --shadow-dark: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      background-image: var(--tree-ring-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    a {
+      color: var(--dark-green-600);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--dark-green-700);
+      outline: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 7px #2a5b2a88;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      margin-top: 3rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      user-select: text;
+      white-space: pre-line;
+    }
+
+    /* Utilities */
+    .container {
+      width: min(90%, 960px);
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 4rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+      border-radius: 1rem;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 8px var(--shadow-dark);
+      margin-bottom: 3rem;
+      max-width: 900px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--dark-green-900);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 5px var(--shadow-dark);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(90%, 1200px);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--dark-green-600);
+      user-select: none;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px #1e4f1eaa;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-left: 2rem;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+      user-select: none;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--dark-green-600);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      opacity: 1;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    nav a.active,
+    nav a[aria-current="page"] {
+      font-weight: 700;
+      color: var(--dark-green-300);
+    }
+
+    /* Main Layout */
+    main {
+      flex-grow: 1;
+      padding-bottom: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .cookies-content {
+      max-height: none;
+      overflow-y: visible;
+      padding-right: 0;
+      user-select: text;
+      max-width: 900px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-green-900);
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      box-shadow: 0 -4px 12px var(--shadow-dark);
+      border-top: 1px solid var(--dark-green-800);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    footer strong {
+      color: var(--dark-green-600);
+    }
+
+    /* Cookie Dialog */
+    #cookie-dialog {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--dark-green-900);
+      color: var(--text-white);
+      padding: 1.25rem 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      max-width: 90vw;
+      width: 480px;
+      z-index: 1100;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      user-select: text;
+    }
+
+    #cookie-dialog p {
+      margin: 0 0 1rem 0;
+      line-height: 1.5;
+      max-height: 10rem;
+      overflow-y: auto;
+    }
+
+    #cookie-dialog button {
+      margin-top: 0.5rem;
+      background-color: var(--dark-green-600);
+      border: none;
+      border-radius: 12px;
+      padding: 0.6rem 1.2rem;
+      font-weight: 700;
+      color: var(--text-white);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      flex: 1;
+    }
+
+    #cookie-dialog button:hover,
+    #cookie-dialog button:focus {
+      background-color: var(--dark-green-700);
+      outline: none;
+    }
+
+    #cookie-dialog .button-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    #cookie-dialog button.decline {
+      background-color: #8b2f2f;
+    }
+
+    #cookie-dialog button.decline:hover,
+    #cookie-dialog button.decline:focus {
+      background-color: #6e2525;
+    }
+
+    /* Accessibility & Focus */
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--dark-green-600);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <header role="banner">
+    <div class="nav-container">
+      <div class="logo" aria-label="PruneConsult logo">PruneConsult</div>
+      <nav aria-label="Primary navigation">
+       <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0"aria-current="page">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" tabindex="-1" class="container">
+    <section class="section cookies-content" aria-label="Cookies Policy Content">
+      <h1>Cookies Policy</h1>
+      <p>Last updated: June 2024</p>
+      <p>At PruneConsult, we value your privacy and strive to provide transparency about the data we collect and how we use it through cookies and similar tracking technologies. This Cookies Policy explains in detail how and why cookies are used on our website and services. Below, you will find 40 comprehensive points elaborating on various aspects of cookie usage, types, management, and your rights and choices.</p>
+
+      <p><strong>1. What Are Cookies?</strong> Cookies are small text files stored on your device by your web browser when you visit websites. They allow websites to recognize your device and remember your preferences and actions. This recognition helps tailor your experience on returning visits. Cookies enhance usability by remembering logins, language settings, and other user preferences, making browsing smoother and faster.</p>
+
+      <p><strong>2. Types of Cookies on PruneConsult</strong> We employ different cookie types, including essential cookies which are mandatory for our site to function, performance cookies that help analyze user behavior for improving the site, functional cookies to remember preferences and personalize your experience, and advertising cookies that support targeted marketing to relevant audiences. Each cookie type serves an important role to optimize your interactions with the site.</p>
+
+      <p><strong>3. Essential Cookies</strong> These cookies are necessary to enable core functionality such as secure login, network management, and accessibility features. They ensure the site operates reliably and securely. Disabling them may disrupt basic services and limit access to certain parts of PruneConsult’s platform.</p>
+
+      <p><strong>4. Performance Cookies</strong> These gather anonymous data about how visitors use our website, including page views, navigation patterns, and load times. This information is critical for identifying issues, improving site architecture, and enhancing user experience. The data collected is aggregated and does not identify individual users.</p>
+
+      <p><strong>5. Functional Cookies</strong> Functional cookies remember choices you have made, such as language settings, font size, and saved booking details. By remembering these preferences, we create a personalized and convenient experience, reducing repetitive tasks for you across sessions.</p>
+
+      <p><strong>6. Advertising Cookies</strong> Through these cookies, we can present you with advertising content tailored to your interests, based on your browsing behavior and interaction with our content. This targeted advertising aims to provide relevant offers and information. We manage these cookies responsibly and comply with privacy regulations about user consent.</p>
+
+      <p><strong>7. Third-Party Cookies</strong> We collaborate with trusted partners such as analytics providers and marketing platforms who may set cookies on your browser when interacting with our site. These third parties operate independently and have their own privacy policies which we encourage you to review to understand their data practices.</p>
+
+      <p><strong>8. Cookie Duration</strong> Cookies can be session-based or persistent. Session cookies exist temporarily and expire when you close your browser, while persistent cookies remain on your device for days, months, or even years. We determine cookie duration based on their function, balancing usability with privacy.</p>
+
+      <p><strong>9. Managing Cookies</strong> You can manage or disable cookies via your browser settings at any time. Browsers typically allow you to view stored cookies, delete them, block specific sites, or block all cookies. Please note that disabling some cookies may limit website features or prevent access to certain services.</p>
+
+      <p><strong>10. Cookie Consent</strong> Upon your initial visit to PruneConsult’s website, a cookie consent dialog will appear giving you the choice to accept or decline non-essential cookies. Your decision will be remembered for future visits to respect your privacy preferences. Essential cookies necessary for site operation will always be active.</p>
+
+      <p><strong>11. Cookie Policy Updates</strong> We regularly review and update our cookie practices to reflect technological advances and regulatory changes. Any significant modifications to this policy will be communicated on our website, and your continued use implies acceptance of the updated terms.</p>
+
+      <p><strong>12. How Cookies Are Used</strong> Cookies help us recognize returning visitors, keep track of user sessions, remember form inputs during booking, and analyze traffic sources. They also help us detect and prevent fraudulent activities and unauthorized logins, ensuring the security and integrity of our services.</p>
+
+      <p><strong>13. Personal Data in Cookies</strong> Cookies themselves do not often contain personal data, but they can be linked to personal information you have provided during interactions with our site. We treat all collected personal data in compliance with our Privacy Policy and applicable data protection laws.</p>
+
+      <p><strong>14. Analytics and Reporting</strong> Cookies enable collection of aggregate data used to generate reports about site usage, helping us understand visitor demographics, behavior patterns, and content preferences. These insights fuel continuous service improvement and targeted content development.</p>
+
+      <p><strong>15. Marketing Campaigns</strong> Cookies help us measure the effectiveness of marketing campaigns by tracking user interaction with advertisements and promotional content. This data allows us to optimize campaigns, reduce irrelevant advertising, and offer promotions suited to your interests.</p>
+
+      <p><strong>16. Security Cookies</strong> Specific cookies assist in protecting user accounts by monitoring for suspicious activities and authenticating user sessions. This reduces risks such as session hijacking or unauthorized access, providing a safer experience while using PruneConsult’s services.</p>
+
+      <p><strong>17. Cookies and Booking Services</strong> When booking consultations, cookies preserve your filled information during navigation and prevent data loss due to accidental page refreshes. This improves user experience by simplifying the multi-step booking process.</p>
+
+      <p><strong>18. Cookie Settings Access</strong> You may access and modify your cookie settings anytime through browser controls or our cookie preference center available on our site. We provide clear guidance on managing cookie consent to help protect your privacy choices.</p>
+
+      <p><strong>19. Blocking Cookies</strong> Blocking or deleting cookies can impact certain functionality such as login persistence, personalization, or session continuity. We remind users to weigh privacy preferences against potential service limitations before blocking cookies.</p>
+
+      <p><strong>20. Consent Logging</strong> For compliance with data protection laws, we securely log your cookie consent choices including acceptance or rejection. This record helps document user preferences and assists in audits or regulatory requests.</p>
+
+      <p><strong>21. Data Retention</strong> We retain cookie-related data only as long as necessary to fulfill its intended function or comply with legal obligations. Expired cookies are routinely cleaned up automatically by browsers. We ensure cookie data does not persist longer than appropriate.</p>
+
+      <p><strong>22. Opting Out</strong> You have rights to opt out from targeted advertising cookies using mechanisms such as the Digital Advertising Alliance or Google’s Ads Settings. PruneConsult does not use cookies beyond what these controls allow without your consent.</p>
+
+      <p><strong>23. Mobile Devices</strong> Our cookies are designed to function consistently across desktop and mobile devices to ensure a seamless browsing experience wherever you access our website or mobile app.</p>
+
+      <p><strong>24. Cookie Categories Explained</strong> We clearly categorize cookies into necessary, performance, functional, and advertising groups to provide clarity on the role and impact of each cookie type on your browsing experience.</p>
+
+      <p><strong>25. Cross-Site Tracking</strong> Some advertising cookies enable tracking across multiple websites to build user profiles for ad targeting. You can prevent cross-site tracking through your browser preferences or privacy tools.</p>
+
+      <p><strong>26. Cookie Removal</strong> Browsers allow manual removal of cookies at any time. This can help protect your privacy but may require re-entering information or affect saved preferences on repeat visits.</p>
+
+      <p><strong>27. Legal Compliance</strong> PruneConsult abides by laws such as the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA) governing cookie use and user consent, ensuring full transparency and user control over personal data.</p>
+
+      <p><strong>28. Cookies and Children</strong> We do not intentionally collect data via cookies from children under 13 without parental consent. Our site and services are designed for responsible use by adults and families.</p>
+
+      <p><strong>29. Changes in Cookies Usage</strong> As technology and regulations evolve, we may adjust our cookie practices. We commit to informing users about major changes and seek consent where necessary.</p>
+
+      <p><strong>30. Cookies in Emails</strong> We do not embed cookies in emails we send for marketing or transactional purposes, respecting your email privacy and data security.</p>
+
+      <p><strong>31. Cookie Vulnerabilities</strong> We implement secure cookie attributes such as HttpOnly and Secure flags to reduce exposure to security threats including cross-site scripting (XSS) and session hijacking.</p>
+
+      <p><strong>32. Cookies and User Authentication</strong> Authentication cookies ensure your login state is maintained securely, enabling you to navigate our services without repeated logins, enhancing convenience and security.</p>
+
+      <p><strong>33. Cookie Consent Management</strong> Our website includes a cookie preference center allowing you to adjust your cookie choices anytime, including withdrawing consent or customizing which types of cookies we use on your device.</p>
+
+      <p><strong>34. Cookies and Social Media</strong> Integration with platforms such as Facebook, Twitter, and Instagram may involve cookies to enable sharing, social login, or tailored content experiences tied to your social profiles.</p>
+
+      <p><strong>35. Cookie Policy Transparency</strong> We provide accessible, clear information on our cookie usage practices, ensuring you can easily understand and manage how your data is collected and used.</p>
+
+      <p><strong>36. Cookie Usage Monitoring</strong> We regularly audit cookie use and third-party partners’ compliance with our privacy standards to protect your data and maintain trustworthiness.</p>
+
+      <p><strong>37. Cookies and Browser Compatibility</strong> Our cookies are compatible with all major browsers, ensuring consistent functionality across diverse user devices and platforms.</p>
+
+      <p><strong>38. Cookies on Subdomains</strong> We use cookies across pruneconsult.com subdomains to provide a unified experience as you navigate between different parts of our website and services seamlessly.</p>
+
+      <p><strong>39. Cookie Policy Feedback</strong> We welcome your input on improving our cookie policies and practices. Contact us anytime to share feedback or raise privacy-related questions.</p>
+
+      <p><strong>40. Your Rights Regarding Cookies</strong> You retain control over cookies set by our site. This includes rights to review, accept, reject, or delete cookies via browser tools or our consent mechanisms, empowering you to tailor your online privacy experience to your preferences.</p>
+
+      <p>We encourage you to review all the information above to make informed cookie decisions while continuing to enjoy the expert services and rich content PruneConsult provides. Your privacy is our priority, and we are committed to protecting it with the highest industry standards.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo" aria-label="Footer with address and contact information">
+    <p><strong>PruneConsult</strong></p>
+    <p>550 1st Ave, New York, NY 10016, USA</p>
+    <p>Expert pruning advice, diagnostics &amp; plant health evaluation</p>
+    <p>Contact: <a href="mailto:info@pruneconsult.com">info@pruneconsult.com</a> | Phone: <a href="tel:+18772923344">+1
+        877-292-3344</a></p>
+  </footer>
+
+  <div id="cookie-dialog" role="dialog" aria-modal="true" aria-labelledby="cookieDialogTitle" aria-describedby="cookieDialogDesc" hidden>
+    <p id="cookieDialogDesc">We use cookies to enhance your experience on our site, to analyze site traffic, and to personalize content. By clicking Accept, you consent to our use of cookies. You can decline non-essential cookies by clicking Decline.</p>
+    <div class="button-group">
+      <button id="accept-cookies" type="button" aria-label="Accept cookies">Accept</button>
+      <button id="decline-cookies" type="button" class="decline" aria-label="Decline cookies">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    // Cookie consent management
+    (function () {
+      const dialog = document.getElementById('cookie-dialog');
+      const accepted = localStorage.getItem('pruneConsultCookiesAccepted');
+      if (!accepted) {
+        dialog.hidden = false;
+      }
+      const acceptBtn = document.getElementById('accept-cookies');
+      const declineBtn = document.getElementById('decline-cookies');
+
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('pruneConsultCookiesAccepted', 'true');
+        dialog.hidden = true;
+        // Here you could initialize cookies or analytics if needed
+      });
+
+      declineBtn.addEventListener('click', () => {
+        localStorage.setItem('pruneConsultCookiesAccepted', 'false');
+        dialog.hidden = true;
+        // Disable any non-essential cookies/scripts here if implemented
+      });
+    })();
+  </script>
+</body>
+
+</html>
+

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PruneConsult - Privacy Policy</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Root & Theme Colors */
+    :root {
+      --dark-green-900: #0b3d0b;
+      --dark-green-800: #126012;
+      --dark-green-700: #1a8a1a;
+      --dark-green-600: #28b028;
+      --tree-ring-bg: url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a07ea40f-3dc1-49fa-9714-c23036ab4297.png") center/cover no-repeat;
+      --font-headline: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --text-white: #fafafa;
+      --text-muted: #a0b29a;
+      --bg-dark: #061d06;
+      --card-bg: rgba(40, 176, 40, 0.15);
+      --shadow-dark: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      background-image: var(--tree-ring-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--dark-green-600);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--dark-green-700);
+      outline: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 7px #2a5b2a88;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      margin-top: 3rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      user-select: text;
+    }
+
+    ul {
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+    }
+    ul li {
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* Utilities */
+    .container {
+      width: min(90%, 960px);
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 4rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+      border-radius: 1rem;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 8px var(--shadow-dark);
+      margin-bottom: 3rem;
+      max-width: 900px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--dark-green-900);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 5px var(--shadow-dark);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(90%, 1200px);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--dark-green-600);
+      user-select: none;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px #1e4f1eaa;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-left: 2rem;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+      user-select: none;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--dark-green-600);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      opacity: 1;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    /* Active nav highlight for Privacy */
+    nav a.active,
+    nav a[aria-current="page"] {
+      font-weight: 700;
+      color: var(--dark-green-300);
+    }
+
+    /* Main Layout */
+    main {
+      flex-grow: 1;
+      padding-bottom: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Content area without slider or scroll */
+    .privacy-content {
+      max-height: none;
+      overflow-y: visible;
+      padding-right: 0;
+      user-select: text;
+      max-width: 900px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-green-900);
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      box-shadow: 0 -4px 12px var(--shadow-dark);
+      border-top: 1px solid var(--dark-green-800);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    footer strong {
+      color: var(--dark-green-600);
+    }
+
+    /* Accessibility & Focus */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--dark-green-600);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <header role="banner">
+    <div class="nav-container">
+      <div class="logo" aria-label="PruneConsult logo">PruneConsult</div>
+      <nav aria-label="Primary navigation">
+       <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0"aria-current="page">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" tabindex="-1" class="container">
+    <section class="section privacy-content" aria-label="Privacy Policy Content">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: June 2024</p>
+
+      <p>Welcome to PruneConsult’s Privacy Policy. At PruneConsult, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our services and website. We collect several types of information in order to provide and improve our services.</p>
+
+      <p>We collect personal information including your name, email address, phone number, and mailing address when you register or book a consultation. When you visit our website, we may also collect data such as IP address, browser type, pages visited, and referral URLs to analyze usage and enhance user experience. We use cookies and similar technologies to remember your preferences, log usage patterns, and assist with marketing efforts. You may control cookies through your browser settings.</p>
+
+      <p>Your personal information is used to provide pruning and plant health consultation services efficiently; to communicate with you about your bookings and inquiries; to analyze website usage and improve its content and functionality; to send promotional materials, updates, and newsletters with your consent; and to comply with legal obligations and protect against fraud or unauthorized activities.</p>
+
+      <p>We do not sell or rent your personal information to third parties. However, we may share data with trusted service providers who assist in operating our business, such as hosting companies and email services, solely to improve our services. We implement industry-standard security measures including encryption and secure servers to protect your data from unauthorized access, alteration, or destruction. While we strive to safeguard your data, no online system is completely secure.</p>
+
+      <p>You have the right to access and obtain a copy of your personal information, to request corrections or deletions of your data, to restrict or object to our processing of your data, and to withdraw your consent where applicable. To exercise any of these rights, please contact us at our email below.</p>
+
+      <p>Our website may contain links to external sites. We are not responsible for the privacy practices or content of these websites. We recommend reviewing their privacy policies when you visit them. Our services are not directed to individuals under 13 years old. We do not knowingly collect personal data from children under this age. If you believe we have accidentally collected such data, please contact us immediately.</p>
+
+      <p>We reserve the right to update this policy as needed. We encourage you to periodically review this page for any changes. Continued use of our services after changes constitutes acceptance. If you have any questions or concerns about this Privacy Policy or our data handling practices, please contact us at info@pruneconsult.com or by phone at +1 877-292-3344. Our address is 550 1st Ave, New York, NY 10016, USA.</p>
+
+      <h2>Additional Privacy Topics</h2>
+
+      <p><strong>Data Retention:</strong> We retain your personal data only as long as necessary to fulfill the purposes outlined in this Privacy Policy, including to comply with legal obligations, resolve disputes, and enforce our agreements.</p>
+
+      <p><strong>Your Consent and Choices:</strong> You can choose not to provide certain information, but this may limit your access to some features or services. Additionally, you can opt out of receiving marketing communications by following the unsubscribe instructions provided in such emails.</p>
+
+      <p><strong>Third-Party Analytics and Marketing:</strong> We use third-party services such as Google Analytics to understand our users' behavior and improve our website. These services may collect anonymous information about your use of the site. You can disable cookies or use privacy browsers/extensions to limit such tracking.</p>
+
+      <p><strong>International Data Transfers:</strong> If you are located outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States where our servers are located, in compliance with applicable data protection regulations.</p>
+
+      <p><strong>Data Security Measures:</strong> We regularly review our physical, electronic, and procedural safeguards to protect your information. Access to personal information within our organization is restricted to authorized personnel only.</p>
+
+      <p><strong>Data Breach Notification:</strong> In the unlikely event of a data breach, we will promptly notify affected individuals and relevant authorities in accordance with applicable laws and regulations.</p>
+
+      <p><strong>Cookies and Tracking Technologies:</strong> Our website uses cookies to enhance functionality and provide personalized experiences. You can manage cookie preferences through your browser settings or our cookie consent banner where applicable.</p>
+
+      <p><strong>Children's Privacy:</strong> We do not knowingly collect personal information from children under 13. If you believe we have inadvertently done so, please contact us immediately, and we will take appropriate steps to delete such data.</p>
+
+      <p><strong>Contact Information:</strong> For questions or requests related to your data or this Privacy Policy, please contact us at info@pruneconsult.com or call +1 877-292-3344.</p>
+
+      <p><strong>Changes to this Privacy Policy:</strong> We may update this Privacy Policy from time to time. We encourage you to review this page periodically to stay informed about how we protect your information.</p>
+
+      <p>This Privacy Policy is designed to comply with applicable data protection laws including GDPR and CCPA, ensuring that your rights are respected and your data is managed responsibly and transparently.</p>
+
+      <p>We are committed to maintaining your trust and providing you with clear, accessible information about how your data is processed and protected throughout your interactions with PruneConsult.</p>
+
+      <p>Please do not hesitate to contact us for any privacy-related questions or concerns.</p>
+
+      <h2>Opt-Out Policies</h2>
+      <p>You have the right to opt-out of marketing communications at any time by following the unsubscribe link provided in our emails. We also respect “Do Not Track” browser settings where applicable, though some services may still collect usage data for essential functions.</p>
+
+      <h2>Data Privacy Officer</h2>
+      <p>PruneConsult designates a Data Privacy Officer (DPO) responsible for overseeing data protection strategies and ensuring compliance with relevant laws. You may contact our DPO for inquiries or complaints concerning your personal data.</p>
+
+      <h2>Automated Decision Making</h2>
+      <p>We do not engage in automated decision-making processes that affect users' rights or interests. All decisions concerning personal data usage are reviewed and approved by authorized personnel.</p>
+
+      <h2>Security Training & Awareness</h2>
+      <p>Our team regularly undergoes security training and follows strict policies to protect your data and maintain high privacy standards within our organization.</p>
+
+      <h2>Third-Party Processor Audits</h2>
+      <p>We conduct regular audits of our third-party data processors to ensure they comply with our privacy standards, contractual obligations, and applicable data protection regulations.</p>
+
+      <h2>User Data Access Requests</h2>
+      <p>You may submit a request to access, update, or delete your personal data. We aim to respond promptly, usually within 30 days, and may require identity verification to process such requests.</p>
+
+      <h2>Data Encryption</h2>
+      <p>Data transmitted to and from our website is secured using industry-standard encryption protocols such as HTTPS/TLS to protect the confidentiality and integrity of your information.</p>
+
+      <h2>Privacy By Design</h2>
+      <p>Privacy considerations are integrated into our product development and business processes from the earliest stages to ensure ongoing protection of personal data.</p>
+
+      <h2>Third-Party Cookies</h2>
+      <p>Some third-party services integrated into our website may use cookies and other tracking technologies. You can review and manage cookie settings via your browser preferences or cookie consent tools.</p>
+
+      <h2>Contact and Support</h2>
+      <p>For privacy inquiries or concerns, please contact our support team at info@pruneconsult.com or call +1 877-292-3344.</p>
+
+      <p>We value your privacy and are dedicated to maintaining transparency, accountability, and trust through our ongoing privacy practices.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo" aria-label="Footer with address and contact information">
+    <p><strong>PruneConsult</strong></p>
+    <p>550 1st Ave, New York, NY 10016, USA</p>
+    <p>Expert pruning advice, diagnostics &amp; plant health evaluation</p>
+    <p>Contact: <a href="mailto:info@pruneconsult.com">info@pruneconsult.com</a> | Phone: <a href="tel:+18772923344">+1
+        877-292-3344</a></p>
+  </footer>
+</body>
+
+</html>
+

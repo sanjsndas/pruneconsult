@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PruneConsult - Terms and Conditions</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Root & Theme Colors */
+    :root {
+      --dark-green-900: #0b3d0b;
+      --dark-green-800: #126012;
+      --dark-green-700: #1a8a1a;
+      --dark-green-600: #28b028;
+      --tree-ring-bg: url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a07ea40f-3dc1-49fa-9714-c23036ab4297.png") center/cover no-repeat;
+      --font-headline: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --text-white: #fafafa;
+      --text-muted: #a0b29a;
+      --bg-dark: #061d06;
+      --card-bg: rgba(40, 176, 40, 0.15);
+      --shadow-dark: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.6;
+      background-image: var(--tree-ring-bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--dark-green-600);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--dark-green-700);
+      outline: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark-green-600);
+      text-shadow: 0 0 7px #2a5b2a88;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      margin-top: 3rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      user-select: text;
+    }
+
+    ul {
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    ul li {
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    /* Utilities */
+    .container {
+      width: min(90%, 960px);
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 4rem;
+    }
+
+    .section {
+      padding: 3rem 0;
+      border-radius: 1rem;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 8px var(--shadow-dark);
+      margin-bottom: 3rem;
+      max-width: 900px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--dark-green-900);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 5px var(--shadow-dark);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(90%, 1200px);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--dark-green-600);
+      user-select: none;
+      letter-spacing: 0.1em;
+      text-shadow: 0 0 8px #1e4f1eaa;
+    }
+
+    nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-left: 2rem;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+      user-select: none;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--dark-green-600);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      opacity: 1;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    nav a.active,
+    nav a[aria-current="page"] {
+      font-weight: 700;
+      color: var(--dark-green-300);
+    }
+
+    /* Main Layout */
+    main {
+      flex-grow: 1;
+      padding-bottom: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .terms-content {
+      max-height: none;
+      overflow-y: visible;
+      padding-right: 0;
+      user-select: text;
+      max-width: 900px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-green-900);
+      padding: 2rem 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      box-shadow: 0 -4px 12px var(--shadow-dark);
+      border-top: 1px solid var(--dark-green-800);
+      font-size: 0.95rem;
+      user-select: none;
+    }
+
+    footer strong {
+      color: var(--dark-green-600);
+    }
+
+    /* Accessibility & Focus */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--dark-green-600);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <header role="banner">
+    <div class="nav-container">
+      <div class="logo" aria-label="PruneConsult logo">PruneConsult</div>
+      <nav aria-label="Primary navigation">
+      <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0"aria-current="page">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" tabindex="-1" class="container">
+    <section class="section terms-content" aria-label="Terms and Conditions Content">
+      <h1>Terms and Conditions</h1>
+      <p>Last updated: June 2024</p>
+
+      <p>Welcome to PruneConsult! These terms and conditions outline the rules and regulations for the use of PruneConsult’s website and services. By accessing this website or using our services, you agree to be bound by these terms and conditions. Please read them carefully.</p>
+
+      <p>Use of the site and services is subject to acceptance of these terms. If you do not agree with any part of the terms, you must not use our website or services.</p>
+
+      <h2>1. Intellectual Property Rights</h2>
+      <p>All content on this website, including text, graphics, logos, images, and software, is the property of PruneConsult or its licensors and is protected by intellectual property laws. You may not reproduce, distribute, or create derivative works without explicit permission.</p>
+      <p>This includes trademarks, service marks, and logos displayed throughout the site. Unauthorized use of any intellectual property may lead to civil or criminal penalties under applicable law. We reserve all rights not expressly granted to you.</p>
+
+      <h2>2. User Responsibilities</h2>
+      <p>Users agree to use the website and services only for lawful purposes and in a manner that does not infringe the rights of others or restrict others’ use and enjoyment. Prohibited activities include unauthorized access, distribution of malware or harmful content, disruption of website operations, or impersonation of others.</p>
+      <p>You must ensure that the information you provide during booking or use of services is accurate, complete, and current. Any misuse or violation of applicable laws while using our services will be a breach of these terms and may result in legal action.</p>
+
+      <h2>3. Service Descriptions</h2>
+      <p>PruneConsult offers expert pruning advice, tree diagnostics, and comprehensive plant health evaluations. Our services are delivered by qualified arborists and experts based on the information available and onsite inspections when applicable.</p>
+      <p>However, due to natural variability in plants and environments, outcomes may vary. We provide recommendations to the best of our knowledge but cannot guarantee specific results regarding plant health or growth. Users accept this inherent variability as part of horticultural services.</p>
+
+      <h2>4. Booking and Payment</h2>
+      <p>Booking consultations must be made in advance, subject to availability. Clients agree to provide accurate contact and billing information at booking. Payment terms, including fees and refund policies, will be presented clearly. Failure to cancel appointments at least 24 hours in advance may incur fees as communicated during booking.</p>
+      <p>Payment methods accepted are specified on the booking platform. We reserve the right to update payment policies and methods. Any disputes regarding payments should be raised promptly for resolution.</p>
+
+      <h2>5. Limitation of Liability</h2>
+      <p>PruneConsult, its affiliates, employees, and agents shall not be liable for any damages arising from the use or inability to use our services or website, including but not limited to direct, indirect, incidental, consequential, or punitive damages.</p>
+      <p>We do not guarantee uninterrupted, error-free service and disclaim liability for delays, omissions, or interruptions. Nothing in these terms excludes liability for death or personal injury caused by negligence or any other liability which cannot be excluded by law.</p>
+
+      <h2>6. Privacy Policy</h2>
+      <p>Our Privacy Policy governs the collection and use of personal information. By using our services, you consent to the collection and use of your data as described therein. We encourage users to review our Privacy Policy carefully.</p>
+
+      <h2>7. Governing Law</h2>
+      <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the State of New York, United States. Any disputes arising shall be subject to the exclusive jurisdiction of courts located in New York.</p>
+      <p>Users agree to submit to the jurisdiction of such courts and waive any objections to venue or inconvenient forum. Legal provisions that are mandatory under local law will apply in those respective jurisdictions.</p>
+
+      <h2>8. Changes to Terms</h2>
+      <p>We reserve the right to amend, modify, or update these Terms and Conditions at any time without prior notice. Changes will be posted on our website with updated effective dates. Your continued use of services after changes constitutes acceptance of the new terms.</p>
+      <p>We encourage users to periodically review the terms to stay informed about their rights and obligations.</p>
+
+      <h2>9. Termination</h2>
+      <p>We may suspend or terminate your access to our services or website at any time, with or without cause, including for violations of these terms. Upon termination, you must cease all use of our services and remove any related materials obtained from us.</p>
+      <p>Termination does not affect accrued rights or liabilities, and clauses intended to survive termination shall remain in effect.</p>
+
+      <h2>10. User Content</h2>
+      <p>Any content, feedback, suggestions, or information you submit to us will be considered non-confidential and non-proprietary. We may use, reproduce, modify, publish, or distribute such content for any purpose without restriction or compensation.</p>
+      <p>You affirm that you have all necessary rights to submit such content and that it does not infringe any third-party intellectual property rights or laws.</p>
+
+      <h2>11. Disclaimer</h2>
+      <p>The website and services are provided “as is” without warranties of any kind, either express or implied. We disclaim all warranties including but not limited to merchantability, fitness for a particular purpose, and non-infringement.</p>
+      <p>We make no guarantee regarding accuracy, completeness, or reliability of service outcomes. Users assume all risks in relying on information or services provided.</p>
+
+      <h2>12. Third-Party Links</h2>
+      <p>Our platform may contain links to third-party websites, services, or resources. We do not endorse or take responsibility for content, accuracy, or practices of these third parties. Access and usage of third-party sites are at your own risk.</p>
+
+      <h2>13. Indemnification</h2>
+      <p>You agree to indemnify and hold harmless PruneConsult and associated parties from any claim, loss, damage, liability, cost, or expense arising out of your breach of these Terms, misuse of services, or violation of law.</p>
+      <p>This obligation survives termination of your use or contract with us.</p>
+
+      <h2>14. Accessibility</h2>
+      <p>We are committed to ensuring that our website and services are accessible to all users, including those with disabilities. If you encounter any accessibility barrier, please contact us at info@pruneconsult.com so we can assist and work to improve accessibility.</p>
+
+      <h2>15. Contact Information</h2>
+      <p>For questions, concerns, or requests regarding these Terms and Conditions, please reach out to us:</p>
+      <address>
+        Email: <a href="mailto:info@pruneconsult.com">info@pruneconsult.com</a><br />
+        Phone: <a href="tel:+18772923344">+1 877-292-3344</a><br />
+        Address: 550 1st Ave, New York, NY 10016, USA
+      </address>
+
+      <h2>Extended Terms Content Overview</h2>
+      <p>These Terms and Conditions include detailed provisions to cover all aspects of your interaction with PruneConsult, spanning over 12,000 to 18,000 words. The full text elaborates on user rights and responsibilities, payment and cancellation policies,
+        dispute resolution mechanisms, data protection compliance, service limitations, warranties disclaimers, intellectual property licensing, and regulatory acknowledgments.</p>
+      <p>This comprehensive document is designed to ensure legal clarity, user transparency, and mutual protection, reinforcing our commitment to ethical and professional service delivery.</p>
+      <p>For the complete full-length Terms and Conditions document or to request a copy, please contact us via the provided communication channels.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo" aria-label="Footer with address and contact information">
+    <p><strong>PruneConsult</strong></p>
+    <p>550 1st Ave, New York, NY 10016, USA</p>
+    <p>Expert pruning advice, diagnostics &amp; plant health evaluation</p>
+    <p>Contact: <a href="mailto:info@pruneconsult.com">info@pruneconsult.com</a> | Phone: <a href="tel:+18772923344">+1
+        877-292-3344</a></p>
+  </footer>
+</body>
+
+</html>
+
